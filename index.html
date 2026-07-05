@@ -4,6 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Términos y Condiciones de Uso - Karagato Studios</title>
+    <script>
+        // Redirección automática por idioma del navegador
+        (function() {
+            var userLang = navigator.language || navigator.userLanguage;
+            userLang = userLang.toLowerCase();
+            var currentPath = window.location.pathname;
+            // Evitar bucle si ya estamos en un archivo específico
+            if (currentPath.indexOf('index_') !== -1) {
+                return;
+            }
+            if (userLang.startsWith('en')) {
+                window.location.replace('index_en.html');
+            } else if (userLang.startsWith('pt')) {
+                window.location.replace('index_pt.html');
+            } else if (userLang.startsWith('fr')) {
+                window.location.replace('index_fr.html');
+            } else if (userLang.startsWith('it')) {
+                window.location.replace('index_it.html');
+            } else if (userLang.startsWith('de')) {
+                window.location.replace('index_de.html');
+            }
+        })();
+    </script>
     <style>
         :root {
             --primary: #3483FA;
@@ -12,6 +35,28 @@
             --text-main: #1A1A1A;
             --text-muted: #555555;
             --border: #E8E8E8;
+        }
+
+        .lang-selector {
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: 0.9em;
+            padding: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+        .lang-selector a {
+            color: var(--primary);
+            text-decoration: none;
+            margin: 0 8px;
+            font-weight: 500;
+        }
+        .lang-selector a.active {
+            color: var(--text-main);
+            font-weight: bold;
+            pointer-events: none;
+        }
+        .lang-selector a:hover {
+            text-decoration: underline;
         }
 
         body {
@@ -89,6 +134,14 @@
 <body>
 
 <div class="container">
+    <div class="lang-selector">
+        <a href="index.html" class="active">Español</a> | 
+        <a href="index_en.html">English</a> | 
+        <a href="index_pt.html">Português</a> | 
+        <a href="index_fr.html">Français</a> | 
+        <a href="index_it.html">Italiano</a> | 
+        <a href="index_de.html">Deutsch</a>
+    </div>
     <h1>Términos y Condiciones de Uso</h1>
     <div class="header-date">Última actualización: 2 de julio de 2026</div>
 
